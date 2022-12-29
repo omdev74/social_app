@@ -2,6 +2,8 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 
+// checking
+
 // REGISTER USER
 // calling mongo db is asynchronous from the front end
 export const register = async (req, res) => {
