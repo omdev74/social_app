@@ -1,10 +1,6 @@
-
-// helps to import files in other files using src
-
 {
-    "compilerOptions": {
-        "baseUrl": "src"
-
-    },
-    "include": ["src"]
+  "compilerOptions": {
+    "baseUrl": "src"
+  },
+  "include": ["src"]
 }

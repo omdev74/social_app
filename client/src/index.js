@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import authReducer from "./state";
-import { config } from "dotenv";
 import { Provider } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
 
 // use only while using redux-persist to store state in local storage till user clears the cache
 import {
@@ -19,8 +19,6 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { PersistGate } from "redux-persist/integration/react";
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-
 
 //to ignore a warning by persist
 const persistConfig = { key: "root", storage, version: 1 };
@@ -40,7 +38,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistStore(store)}>
-        <App />s
+        <App />
       </PersistGate>
     </Provider>
   </React.StrictMode>
