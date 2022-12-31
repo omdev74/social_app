@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  mode: "Light",
+  mode: "light",
   user: null,
   token: null,
   posts: [],
@@ -14,7 +14,7 @@ export const authSlice = createSlice({
   //   reduces are actions/functions that involve in modifying global state
   reducers: {
     setMode: (state) => {
-      state.mode = state.mode === "light" ? "dark" : "light;";
+      state.mode = state.mode === "light" ? "dark" : "light";
     },
     setLogin: (state, action) => {
       state.user = action.payload.user;
