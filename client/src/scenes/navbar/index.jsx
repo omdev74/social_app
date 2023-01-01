@@ -31,7 +31,7 @@ export const Navbar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const user = useSelector((state) => state.user);
+  const user = useSelector((state) => state.user);
 
   // inbuilt hook in Mui to check the screen media query
   const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
@@ -44,8 +44,8 @@ export const Navbar = () => {
   const alt = theme.palette.background.alt;
 
   // conveninece variable
-  // const fullName = `${user.firstName} ${user.lastName}`;
-  const fullName = "Om Dev";
+  const fullName = `${user.firstName} ${user.lastName}`;
+  // const fullName = "Om Dev";
 
   return (
     <FlexBetween padding="1rem 6%" backgroundColor={alt}>
