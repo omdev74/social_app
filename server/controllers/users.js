@@ -58,7 +58,7 @@ export const addRemoveFriend = async (req, res) => {
 
 
     //format output for the front end
-    const friends = await promise.all(
+    const friends = await Promise.all(
       user.friends.map((id) => User.findById(id))
     );
 

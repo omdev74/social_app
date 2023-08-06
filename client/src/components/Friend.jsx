@@ -12,7 +12,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const navigate = useNavigate();
   const { _id } = useSelector((state) => state.user);
   const token = useSelector((state) => state.token);
-  const friends = useSelector((state) => state.friends);
+  const friends = useSelector((state) => state.user.friends);
 
   // colors
   const { palette } = useTheme();
@@ -21,16 +21,18 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const main = palette.neutral.main;
   const medium = palette.neutral.medium;
 
+  // console.log(useSelector((state) => state.user));
   const isFriend = friends.find((friend) => friend._id === friendId); //whether friend or not
 
   //   API call to add and remove the friend
   const patchFriend = async () => {
+    console.log("patch frien called");
     const response = await fetch(
       `http://localhost:3001/users/${_id}/${friendId}`,
       {
         method: "PATCH",
         headers: {
-          Authorization: `Bearer${token}`,
+          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
       }
@@ -46,7 +48,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
         <Box
           onClick={() => {
             navigate(`/profile/${friendId}`);
-            //   refresh the page its just the workaround
+            //   refresh the page its just the workaround because the route updates but the component does not render
             navigate(0);
           }}
         >
