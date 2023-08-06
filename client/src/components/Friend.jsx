@@ -13,7 +13,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const { _id } = useSelector((state) => state.user);
   const token = useSelector((state) => state.token);
   const friends = useSelector((state) => state.user.friends);
-
+  
   // colors
   const { palette } = useTheme();
   const primaryLight = palette.primary.light;
@@ -22,6 +22,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const medium = palette.neutral.medium;
 
   // console.log(useSelector((state) => state.user));
+  
   const isFriend = friends.find((friend) => friend._id === friendId); //whether friend or not
 
   //   API call to add and remove the friend

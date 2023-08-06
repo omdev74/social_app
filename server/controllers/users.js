@@ -16,7 +16,7 @@ export const getUserFriends = async (req, res) => {
     const { id } = req.params;
     const user = await User.findById(id);
 
-    const friends = await promise.all(
+    const friends = await Promise.all(
       user.friends.map((id) => User.findById(id))
     );
 
@@ -27,7 +27,7 @@ export const getUserFriends = async (req, res) => {
     );
     res.status(200).json(formattedFriends);
   } catch (error) {
-    res.status(404).json({ message: error.message });
+    res.status(404).json({ message: error.message,console:"line 30 in user.js in controllers" });
   }
 };
 
